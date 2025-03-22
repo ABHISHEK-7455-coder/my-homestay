@@ -1,0 +1,612 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.hero-container {
+    background-image: url(https://www.homestay.com/assets/homepage/hero/hero-d964776e555246a8c442f3cbca48c7412b066dee0fdf7cd76e162d9f6d40700f.jpg);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.newHero {
+    display: flex;
+    width: 95%;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    /* overflow: scroll;
+    scrollbar-width: none; */
+}
+.newLeft {
+    width: 60%;
+}
+.newLeft img {
+    width: 45vw;
+}
+.newtRight {
+    width: 40%;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+.upper-newRight {
+    width: 80%;
+    margin-bottom: 50px;
+    padding-left: 10px;
+}
+.lower-newRight{
+    height: 700px;
+}
+.lower-newRight1 {
+    display: flex;
+    box-shadow: 1px 1px 5px black;
+    margin: 20px;
+}
+.lowerRight-image img {
+    width: 15vw;
+    height: 25vh;
+    padding: 10px;
+}
+.newRight-container {
+    padding: 15px;
+    line-height: 30px;
+}
+header {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%;
+    position: absolute;
+    top: 0px;
+}
+
+.header1 {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%;
+    position: fixed;
+    background-color: white;
+    color: black;
+}
+.header-image {
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-left: 5px;
+    padding: 20px 10px;
+}
+.header-right {
+    padding: 30px 5px;
+    background-color: rgb(0, 0, 0, 0.3);
+}
+.header-right1 {
+    padding: 30px 5px;
+    background-color: white;
+    color: rgb(94, 88, 83);
+}
+header a {
+    margin: 0 15px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.header1 a {
+    margin: 0 15px;
+    color: rgb(94, 88, 83);
+    text-decoration: none;
+}
+.room {
+    border: 1px solid #FFFFFF;
+    padding: 15px;
+   
+}
+.room1 {
+    border: 1px solid rgb(94, 88, 83);
+    padding: 15px;
+   
+}
+
+.middle {
+    width: 100%;
+    align-items: center;
+    margin-top: 335px;
+}
+
+.upper-middle {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+.upper-middle p {
+    color: white;
+    font-size: 50px;
+}
+
+.down-middle {
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 70%;
+    margin: auto;
+    margin-bottom: 200px;
+}
+.down-middle1 {
+    padding: 20px;
+    background-color: rgb(94, 88, 83);
+    width: 100%;
+    margin-top: 400px;
+    display: none;
+}
+
+.down-middle .form1 input {
+    border: none;
+    padding: 20px 25px;
+}
+.form2 {
+    display: flex;
+    justify-content: space-around;
+}
+.down-middle1 .form2 input {
+    border: none;
+    padding: 20px 25px;
+}
+
+#dropdownlist {
+    width: 20vw;
+    padding: 20px;
+}
+#search {
+    background-color: rgb(169, 44, 65);
+    padding: 19px;
+    width: 13vw;
+}
+
+.bottom-main {
+    display: flex;
+    align-content: center;
+    width: 100%;
+    margin-top: 92px;
+    background-color: rgb(94, 88, 83);
+    position: sticky;
+}
+
+.bottom-main div {
+    border-left: 0.5px solid black;
+    padding: 20px;
+    margin-left: 100px;
+}
+.bottom-main a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+}
+
+.hamburger {
+    display: none;
+}
+
+.videoSection {
+    width: 75%;
+    margin: auto;
+}
+.upper {
+    margin-top: 50px;
+}
+h1 {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+.upper p {
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.video {
+    display: flex;
+    justify-content: space-between;
+}
+.hapening {
+    margin-right: 5vw;
+    border: 7px solid lightgray;
+    border-radius: 10px;
+    width: 30%;
+    height: 58vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.hapening h3 {
+    position: sticky;
+    top: 0;
+    text-align: left;
+    background-color: #656261;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.hapening li p {
+    padding-left: 20px;
+    padding-top: 10px;
+    color: gray;
+    text-decoration: none;
+}
+
+.hapening li strong {
+    color: #2B95CA;
+}
+
+iframe {
+    margin-left: 5vw;
+    margin-top: 10px;
+    border-radius: 10px;
+
+}
+
+.comments {
+    display: flex;
+    gap: 2vw;
+    width: 90%;
+    margin: auto;
+    margin-top: 10vh;
+}
+
+.comments .chat {
+    display: flex;
+    gap: 2vw;
+}
+
+.comments .comment > img {
+    border-radius: 50%;
+    border: 7px solid transparent;
+}
+
+.CustomerReviews {
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 40px;
+    width: 12vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2B95CA;
+}
+
+.CustomerReviews button {
+    background-color: #2B95CA;
+    border: none;
+    color: white;
+    padding: 10px;
+}
+
+.spareroom {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 4vw;
+    background-color: #F1EFEF;
+}
+
+
+
+.spareroom div {
+    background-color: white;
+    padding: 50px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+.img-container {
+    
+    background-size: cover;
+    background-position: 0 78%;
+    background-image: url('https://www.homestay.com/assets/promotions/orange_bed-96c5597c1f1b641729a5523b543fbf44b6508237ef81816347f5b10dc95c4485.jpg');
+}
+
+.ListYourProperty {
+    border-radius: 5px;
+    padding: 0;
+    background-color: #2B95CA;
+}
+
+.spareroom button {
+    padding: 10px;
+    padding-left: 0;
+    width: 20vw;
+    border: none;
+    color: white;
+    background-color: #2B95CA;
+}
+
+.spareroom div h3,
+.spareroom div p {
+    padding-bottom: 20px;
+}
+
+.ListARoom {
+    display: flex;
+    flex-direction: column;
+}
+
+.Sustainable {
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+}
+.Sustainable h3,
+.Sustainable p {
+    font-family: Open sans;
+    font-weight: 400;
+    color: #512B1A;
+    padding: 20px;
+}
+
+.Sustainable h3 {
+    font-size: 1.5em;
+}
+
+.heading {
+    text-align: center;
+}
+
+.inspireMe {
+    display: flex;
+    background-color: #F1EFEF;
+    flex-direction:column ;
+    width: 100%;
+}
+.InspireMe>div{
+    width: 80%;
+    margin: auto;
+   
+    margin-top: 5vh;
+}
+
+.Cart1 {
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.Cart1 div{
+    width: 300px;
+    border-radius: 4px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    box-sizing: border-box;
+    overflow: hidden;
+    
+    display: block;
+    cursor: pointer;
+    box-shadow: 0 2px 5px #B7B1AE;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.cart-item {
+    position: relative;
+    height: 350px; 
+    width: 278px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.title-container {
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    visibility: visible;
+}
+
+.name {
+    margin: 0;
+    font-size: 18px;
+}
+
+.explore-btn {
+    display: none;
+    background-color: #92C01F;
+    border: none;
+    padding: 8px 16px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 8px;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.cart-item:hover .explore-btn {
+    display: inline-block;
+}
+
+.cart-item:hover .title-container {
+    visibility: visible;
+}
+
+.footer-container {
+    width: 100%;
+    background-color: rgb(94, 88, 83);
+    margin: auto;
+    padding: 50px;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}
+h5 {
+    color: rgb(255,255,255, 0.6);
+}
+
+.company p {
+    padding-top: 20px;
+}
+
+.explore p {
+    padding-top: 20px;
+}
+
+.customer p {
+    padding-top: 20px;
+}
+
+.logos {
+   display: flex;
+}
+.logos img {
+    margin: 15px;
+}
+
+.info {
+    width: 40%;
+    margin: auto;
+    padding: 15px;
+}
+.info a {
+    text-decoration: none;
+    color: rgba(100, 38, 25, 0.8);
+    padding-right: 20px;
+    margin: 20px;
+    border-right: 0.5px solid rgba(100, 38, 25, 0.8);
+}
+.info :nth-child(3){
+    border: none;
+}
+
+
+@media (max-width:431px) {
+    .header-right {
+        display: none;
+    }
+
+    #destination {
+        width: 100%;
+    }
+    #check-in {
+        width: 49%;
+    }
+    #check-out {
+        width: 49%;
+    }
+    #empty {
+        width: 100%;
+    }
+    #search {
+        width: 100%;
+    }
+
+    .comments {
+        flex-direction: column;
+    }
+
+    .bottom-main {
+        display: none;
+    }
+    
+    .videoSection{
+        display: 100%;
+        flex-direction: column;
+    }
+    .video{
+        flex-direction: column;
+    }
+    .video .hapening{
+        display: none;
+    }
+    iframe{
+        width: 80%;
+        height: auto;
+    }
+
+    .hapening {
+        display: none;
+    }
+    .comment{
+        flex-direction: column;
+    }
+
+    .ListARoom{
+        flex-direction: column;
+    }
+
+    .spareroom {
+        flex-direction: column;
+    }
+
+    .spareroom div {
+        width: 100%;
+    }
+
+    .spareroom button {
+        width: 100%;
+    }
+
+    .main-box form {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .Sustainable{
+        flex-direction: column;
+    }
+    .CustomerReviews {
+        width: 50vw;
+    }
+    .right-side {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 10px;
+    }
+   
+    .nav-links {
+        display: none; 
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* .hamburger {
+        display: block; 
+        color: white;
+    } */
+
+    .nav-links a {
+        color: white;
+    }
+    .footer-container{
+        display: flex;
+        flex-direction: row;
+        gap:5vw
+    }
+    .logos {
+        display: none;
+    }
+    .info {
+        width: 100%;
+    }
+    .pick-item {
+        width: 100%;
+    }
+}
