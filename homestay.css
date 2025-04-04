@@ -12,33 +12,31 @@
     align-items: center;
     justify-content: center;
 }
-.newHero {
+.newMain1 {
     display: flex;
-    width: 95%;
+    width: 100%;
     justify-content: space-evenly;
-    margin-top: 10px;
-    /* overflow: scroll;
-    scrollbar-width: none; */
+    margin-top: 0px;
 }
 .newLeft {
-    width: 60%;
+    width: 50%;
+    height: 600px;
 }
 .newLeft img {
     width: 45vw;
+    height: 600px;
 }
-.newtRight {
-    width: 40%;
-    overflow: scroll;
-    scrollbar-width: none;
+.newRight {
+    width: 60%;
+    overflow-y: scroll;
+    height: 600px;
 }
 .upper-newRight {
     width: 80%;
     margin-bottom: 50px;
     padding-left: 10px;
 }
-.lower-newRight{
-    height: 700px;
-}
+
 .lower-newRight1 {
     display: flex;
     box-shadow: 1px 1px 5px black;
@@ -132,9 +130,17 @@ header a {
 .down-middle1 {
     padding: 20px;
     background-color: rgb(94, 88, 83);
+    color: rgb(94, 88, 83);
     width: 100%;
-    margin-top: 400px;
+    margin-top: 0px;
     display: none;
+    position: fixed;
+    top: 80px;
+}
+
+.down-middle .form1 {
+    display: flex;
+    justify-content: space-around;
 }
 
 .down-middle .form1 input {
@@ -153,26 +159,54 @@ header a {
 #dropdownlist {
     width: 20vw;
     padding: 20px;
+    color: rgb(94,88,83);
 }
+
+#dropdownlist1 {
+    width: 20vw;
+    padding: 20px;
+    color: rgb(94,88,83);
+}
+
+#dropdownlist2 {
+    width: 10vw;
+    padding: 20px;
+    color: rgb(94,88,83);
+}
+
+#persons {
+    padding: 20px;
+}
+#persons2 {
+    padding: 20px;
+}
+
 #search {
     background-color: rgb(169, 44, 65);
-    padding: 19px;
+    padding: 20px;
     width: 13vw;
 }
+#search1 {
+    background-color: rgb(169, 44, 65);
+    padding: 20px;
+    width: 5vw;
+}
+
 
 .bottom-main {
     display: flex;
-    align-content: center;
+    justify-content: space-around;
     width: 100%;
     margin-top: 92px;
     background-color: rgb(94, 88, 83);
     position: sticky;
+    top: 0;
 }
 
 .bottom-main div {
     border-left: 0.5px solid black;
-    padding: 20px;
-    margin-left: 100px;
+    padding: 15px;
+    margin-left: 0px;
 }
 .bottom-main a {
     text-decoration: none;
@@ -180,8 +214,69 @@ header a {
     font-size: 15px;
 }
 
-.hamburger {
+.hamburger-menu {
     display: none;
+}
+
+.newMain{
+    display: none;
+}
+.filter details {
+    display: inline-block;
+    position: relative;
+}
+
+.filter {
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.filter summary {
+    padding: 8px 12px;
+    color: rgb(94, 88, 83);
+    border-radius: 4px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.filter summary::-webkit-details-marker {
+    display: none;
+}
+
+.filter-content {
+    position: absolute;
+    left: 10%;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    min-width: 160px;
+    color: rgb(94, 88, 83);
+    background-color: #F1EFEF;
+    margin-top: 250%;
+    margin-right: 20px;
+    z-index: 1;
+    padding: 40px;
+    width: 620px;
+    display: flex;
+    gap: 40px;
+    transform: translate(-50%, -50%);
+}
+.filter-content strong{
+    font-size: 14px;
+}
+.filter-content p{
+    background-color: white;
+    /* text-align: center; */
+    padding-top: 20px;
+}
+.pets{
+    margin-top: 5px;
+}
+.access{
+    margin-top: 5px;
+}
+.sortlist {
+    margin-top: -25px;
+    float: right;
 }
 
 .videoSection {
@@ -358,12 +453,15 @@ iframe {
     background-color: #F1EFEF;
     flex-direction:column ;
     width: 100%;
+    margin-top: 15px;
 }
-.InspireMe>div{
-    width: 80%;
+.inspireMe>div{
+    width: 90%;
     margin: auto;
-   
     margin-top: 5vh;
+}
+.inspireMe p {
+    margin: 10px;
 }
 
 .Cart1 {
@@ -394,7 +492,7 @@ iframe {
 .cart-item {
     position: relative;
     height: 350px; 
-    width: 278px;
+    width: 300px;
     background-size: cover;
     background-position: center;
     border-radius: 8px;
@@ -487,35 +585,98 @@ h5 {
 .info :nth-child(3){
     border: none;
 }
+/* #header-container {
+    position: relative;
+}
 
+
+ .header-right {
+    position: absolute; 
+    top: 9vh;            
+    right: 0; 
+            
+    display: none;  
+}
+
+.header-right.active {
+    display:flex;
+    flex-direction: column;
+    width: 100%; 
+    margin: auto;
+    text-align: center;
+    padding-top: 1vh;
+    background-color: white;
+    
+}
+.header-right.active a{
+    color: #656261;
+    border: 1px solid #656261;
+    border-collapse: collapse;
+}
+
+
+.hamburger-menu {
+    cursor: pointer;
+} */
 
 @media (max-width:431px) {
-    .header-right {
+    #header-container {
+        background-color: white;
+    }
+
+    .header-right  {
         display: none;
+    }
+    .hero-container {
+        background-image: url(https://www.homestay.com/assets/homepage/hero/hero-d964776e555246a8c442f3cbca48c7412b066dee0fdf7cd76e162d9f6d40700f.jpg);
+        height: 100vh;
+        width: 100%;
+    }
+    .upper-middle p {
+        font-size: 35px;
+        padding: 25px;
     }
 
     #destination {
         width: 100%;
     }
-    #check-in {
-        width: 49%;
-    }
-    #check-out {
-        width: 49%;
-    }
-    #empty {
-        width: 100%;
-    }
+    
     #search {
         width: 100%;
+    }
+    main {
+        width: 100%;
+    }
+
+    .upper h1 {
+        font-size: 25px;
+
     }
 
     .comments {
         flex-direction: column;
+        width: 100%;
     }
 
     .bottom-main {
         display: none;
+    }
+
+    .form1 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form1 select,input,button{
+        padding: 25px;
+    }
+
+    #dropdownlist {
+        width: 100%;
+    }
+
+    #check-in,#check-out {
+        width: 100%;
     }
     
     .videoSection{
@@ -561,6 +722,56 @@ h5 {
         padding: 20px;
     }
 
+    .form2 #dropdownlist,#check-in1,#check-out1,#persons2,.filter {
+        display: none;
+    }
+    #search1{
+        width: 123%;
+        height: 5vh;
+        font-size: x-small;
+        padding: 2px 10px;
+        
+    }
+
+    .form2 {
+        display: inline-block;
+        padding-right: 0px;
+    } 
+    
+    #dropdownlist1 {
+        padding: 15px;
+        width: 123%;
+        height: 5vh;
+    }
+
+    #dropdownlist2 {
+        padding: 15px;
+        width: 123%;
+        height: 5vh;
+    }
+
+    .newLeft {
+        display: none;
+    }
+
+    .newRight {
+        width: 100%;
+        height: 100%;
+        margin-top: 40px;
+    }
+
+    .upper-newRight h1 {
+        font-size: 25px;
+    }
+
+    .lower-newRight1 {
+        display: block;
+    }
+
+    .lower-newRight1 .lowerRight-image img {
+        width: 100%;
+    }
+
     .Sustainable{
         flex-direction: column;
     }
@@ -587,10 +798,12 @@ h5 {
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     }
 
-    /* .hamburger {
+    .hamburger-menu {
         display: block; 
-        color: white;
-    } */
+        color: black;
+        width: 50px;
+        padding: 25px;
+    }
 
     .nav-links a {
         color: white;
@@ -606,7 +819,48 @@ h5 {
     .info {
         width: 100%;
     }
+    .info a {
+        text-decoration: none;
+        color: rgba(100, 38, 25, 0.8);
+        padding-right: 10px;
+        margin: 2px;
+        border-right: 0.5px solid rgba(100, 38, 25, 0.8);
+        font-size: 15px;
+    }
     .pick-item {
         width: 100%;
+    }
+    #header-container {
+        position: fixed; /* This makes the header-right positioned relative to it */
+    }
+    
+     /* Initially hide the menu */
+     .header-right {
+        position: absolute; /* Position the header-right div absolutely */
+        top: 9vh;              /* Align it to the top */
+        right: 0; 
+                 /* Align it to the right */
+        display: none;       /* Hide the menu by default */
+    }
+    /* Show the menu when it's active */
+    .header-right.active {
+        display:flex;
+        flex-direction: column;
+        width: 100%; 
+        margin: auto;
+        text-align: center;
+        padding-top: 1vh;
+        background-color: white;
+        
+    }
+    .header-right.active a{
+        color: #656261;
+        border: 1px solid #656261;
+        border-collapse: collapse;
+    }
+    
+    /* Add styles for the hamburger menu */
+    .hamburger-menu {
+        cursor: pointer;
     }
 }

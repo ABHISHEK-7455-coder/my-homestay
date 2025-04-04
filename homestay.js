@@ -117,27 +117,54 @@ function renderHeader(){
             </div>
             <div class="header-right">
                 <a href="#" class="destination1">DESTINATION</a>
-                <a href="#">&hearts; INSPIRE ME</a>
+                <a href=".inspireMe">&hearts; INSPIRE ME</a>
                 <a href="#">SIGN UP</a>
                 <a href="#">LOG IN</a>
                 <a href="#">ENGLISH</a>
                 <a href="#">HELP</a>
-                <a href="#" class="room">LIST A ROOM</a>
-            </div>`;
-    headerContainer.innerHTML = headerData;    
+                <a href=".ListARoom" class="room">LIST A ROOM</a>
+                
+            </div>
+            <div class="hamburger-menu" onclick="toggleMenu()">&#9776;</div>`;
+    headerContainer.innerHTML = headerData;
+      
+}
+
+// function toggleMenu(){
+//     return `<div >
+//                 <a href="#" class="destination1">DESTINATION</a>
+//                 <a href="#">&hearts; INSPIRE ME</a>
+//                 <a href="#">SIGN UP</a>
+//                 <a href="#">LOG IN</a>
+//                 <a href="#">ENGLISH</a>
+//                 <a href="#">HELP</a>
+//                 <a href="#" class="room">LIST A ROOM</a>
+//             </div>`;
+// }
+function toggleMenu() {
+    var headerRight = document.querySelector('.header-right');
+    // Toggle the 'active' class to show/hide the menu
+    headerRight.classList.toggle('active');
 }
 
 function renderForm(){
     var form = document.querySelector('.down-middle');
     var formData = `<form class="form1">
                 <select id="dropdownlist" name="dropdown">
+            
                     <option value="Rajasthan">Rajasthan</option>
                     <option value="Delhi">Delhi</option>
                     <option value="Chennai">Chennai</option>
                 </select>
                 <input type="date" placeholder="Check In" id="check-in">
                 <input type="date" placeholder="Check Out" id="check-out">
-                <input type="text" placeholder="" id="empty">
+                <select id="persons" name="dropdown">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
                 <button id="search">Search</button>
             </form>`;
     form.innerHTML = formData;
@@ -233,19 +260,88 @@ init()
 
 
 function renderNewHero(){
+
     var form = document.querySelector('.down-middle1');
     var formData = `<form class="form2">
-                <select id="dropdownlist" name="dropdown">
+                <select id="dropdownlist1" name="dropdown">
                     <option value="Rajasthan">Rajasthan</option>
                     <option value="Delhi">Delhi</option>
                     <option value="Chennai">Chennai</option>
                 </select>
                 <input type="date" placeholder="Check In" id="check-in1">
                 <input type="date" placeholder="Check Out" id="check-out1">
-                <input type="text" placeholder="" id="empty1">
-                <button id="search">Search</button>
-                <button>FILTERS</button>
-                <button>SORTING</button>
+                <select id="persons2" name="dropdown">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button id="search1">Search</button>
+                <button class="filter">
+                <details>
+                    <summary>FILTERS(0)</summary>
+                    <div class="filter-content">
+                    <div>
+                    <div>
+                    <label for="range">DISTANCE FROM CENTRE </label><br>
+                    <input type="range" id="range" name="range" min="0" max="1000">
+                    </div>
+                    <div class="meals">
+                    <strong>MEALS (0)</strong>
+                    <p>Meals Provided</p>
+                    <p>Use of Kitchen</p>
+                    </div>
+                    </div>
+                    <div class="welcome">
+                    <div class="welcome1">
+                        <strong>HOST WELCOMES (0)</strong>
+                        <p>Males</p>
+                        <p>Females</p>
+                        <p>Couples</p>
+                        <p>Families</p>
+                        <p>Students</p>
+                    </div>
+                    <div class="pets">
+                        <strong>PETS (0)</strong>
+                        <p>No Pets</p>
+                    </div>
+                    </div>
+                    <div class="hobbies">
+                    <div class="hobbies1">
+                        <strong>HOBBIES(0)</strong>
+                        <p>Cooking</p>
+                        <p>Golf</p>
+                        <p>Tennis</p>
+                        <p>Hiking</p>
+                        <p>Cycling</p>
+                    </div>
+                    <div class="access">
+                        <strong>ACCESSIBLITY (0)</strong>
+                        <p>Wheelchair Accessible</p>
+                    </div>
+                    </div>
+                    <div class="amenities">
+                    <div class="amenities1">
+                        <strong>AMENITIES (0)</strong>
+                        <p>Wireless Internet</p>
+                        <p>TV</p>
+                        <p>Garden</p>
+                        <p>Bikes for use</p>
+                        <p>Parking</p>
+                        <p>Swimming Pool</p>
+                        <p>Gym at home</p>
+                    </div>
+                    </div>
+                    </div>
+                    </details></button>
+                <select id="dropdownlist2" name="dropdown" onchange='sortProducts(event)'>
+                            
+                                <option value="ourpicks" >Our Picks</option>
+                                <option value="mostreviewed" >Most Reviewed</option>
+                                <option value="distance" >Distance</option>
+                                <option value="popular" >Popular</option>               
+                            </select>
             </form>`;
     form.innerHTML = formData;
 }
@@ -261,7 +357,7 @@ var rajasthanData = {
             address: "KALPANA IN AJMER ROAD,JAIPUR",
             images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews: "19 Reviews",
-            distance: "Distance from centre of Jaipur: 1.9km",
+            distance: " 1.9km",
             price: "1,933",
         },
         {
@@ -271,7 +367,7 @@ var rajasthanData = {
             address: "MANISHA IN INTERNATIONAL AIRPORT,JAIPUR",
             images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews: "9 Reviews",
-            distance: "Distance from centre of Jaipur: 9.2km",
+            distance: " 9.2km",
             price: "1,400",
         },
         {
@@ -281,7 +377,7 @@ var rajasthanData = {
             address: "HIMANSHU IN BAPU NAGAR,JAIPUR",
             images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews: "3 Reviews",
-            distance: "Distance from center of Jaipur:2.6km",
+            distance: "2.6km",
             price: "700",
         },
         {
@@ -291,7 +387,7 @@ var rajasthanData = {
             address: "MAHENDRA IN BANIPARK,JAIPUR",
             images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews: "2 Reviews",
-            distance: "Distance form center of Jaipur: 3.3km",
+            distance: " 3.3km",
             price: "1,026",
         },
         {
@@ -301,7 +397,7 @@ var rajasthanData = {
             address: "SHALINI IN TILAK NAGAR,JAIPUR",
             images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews: "1 Review",
-            distance: "Distance from center of Jaipur: 4.1km",
+            distance: " 4.1km",
             price: "999",
         },
 
@@ -313,7 +409,7 @@ var rajasthanData = {
             address: "SHARMILS IN VAISHALI NAGAR, JAIPUR",
             images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews: "0 Reviews",
-            distance: "Distance from centre of Jaipur: 5.0km",
+            distance: " 5.0km",
             price: "2,000",
         },
         {
@@ -323,7 +419,7 @@ var rajasthanData = {
             address: "ADARSH IN JAGATPURA,JAIPUR",
             images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews: "0 Reviews",
-            distance: "Distance from centre of Jaipur: 9.14.7km",
+            distance: " 9.14.7km",
             price: "500",
         },
         {
@@ -333,7 +429,7 @@ var rajasthanData = {
             address: "KULDEEP IN KALWAR ROAD, JHOTWARA,JAIPUR",
             images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews: "0 Reviews",
-            distance: "Distance from center of Jaipur: 7.0km",
+            distance: " 7.0km",
             price: "720",
         },
         {
@@ -343,7 +439,7 @@ var rajasthanData = {
             address: "DR. RANU IN PARK FACING OPP NRI COLONY, JAIPUR",
             images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews: "0 Reviews",
-            distance: "Distance form center of Jaipur: 4.2km",
+            distance: " 4.2km",
             price: "1,333",
         },
         {
@@ -353,7 +449,7 @@ var rajasthanData = {
             address: "MAMTA IN AJMER ROAD,JAIPUR",
             images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews: "0 Review",
-            distance: "Distance from center of Jaipur: 4.2km",
+            distance: " 4.2km",
             price: "2000",
         },
 
@@ -364,7 +460,7 @@ var rajasthanData = {
             address: "Hari in C-Scheme, Jaipur",
             images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews: "19 Reviews",
-            distance: "Distance from centre of Jaipur: 1.9km",
+            distance: " 1.9km",
             price: "1,000",
         },
         {
@@ -374,7 +470,7 @@ var rajasthanData = {
             address: "Manoj in Amer, Jaipur",
             images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews: "9 Reviews",
-            distance: "Distance from centre of Jaipur: 12.4km",
+            distance: " 12.4km",
             price: "700",
         },
         {
@@ -384,7 +480,7 @@ var rajasthanData = {
             address: "UTKARSH in Near Dev nagar, Jaipur",
             images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews: "3 Reviews",
-            distance: "Distance from center of Jaipur:4.2km",
+            distance: "4.2km",
             price: "600",
         },
         {
@@ -394,7 +490,7 @@ var rajasthanData = {
             address: "TEENA IN BANI PARK,JAIPUR",
             images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews: "2 Reviews",
-            distance: "Distance form center of Jaipur: 3.3km",
+            distance: " 3.3km",
             price: "833",
         },
         {
@@ -404,7 +500,7 @@ var rajasthanData = {
             address: "HARSHVARDHAN IN VAISHALI NAGAR,JAIPUR",
             images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews: "1 Review",
-            distance: "Distance from center of Jaipur: 5.4km",
+            distance: " 5.4km",
             price: "1000",
         },
 
@@ -422,6 +518,7 @@ var delhiData = {
             imgurl:'https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSInZ2lkOi8vaHN0L0F2YXRhci80MDY1ODE_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--62d73b96c089b694eefbc4f1cc8d91077537c2a5&style=small',
             title: 'Cozy Stay in the heart of Gurgaon',
             address:'Lekha in DLF 1, Gurgaon',
+            images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews:'1 Review',
             distance:'22.4 km ',
             price:'1,666'
@@ -431,6 +528,7 @@ var delhiData = {
             imgurl:'https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSInZ2lkOi8vaHN0L0F2YXRhci8xMzkwMzQ_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--c013c7faaae3ac5db87496bf7efb36974857bb0c&style=small',
             title: 'Peace Home-2 minutes 2 metro lines',
             address:'Naresh  in Kirti Nagar, New Delhi',
+            images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews:'16 Reviews',
             distance:'7.8 km',
             price:'2,500'
@@ -440,6 +538,7 @@ var delhiData = {
             imgurl:'https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSInZ2lkOi8vaHN0L0F2YXRhci8yNTAzODI_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--f611bd39963356bac4190aab2c0508aa8e753723&style=small',
             title: 'Comfy homestay with WiFi',
             address:'Tarun in Near corner sweets, New Delhi',
+            images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews:'1 Review',
             distance:'9.0 km',
             price:'666'
@@ -449,6 +548,7 @@ var delhiData = {
             imgurl:'https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSI-Z2lkOi8vaHN0L1Byb3BlcnR5Q29udGFjdFByb2ZpbGVQaWN0dXJlLzE2ODEyND9leHBpcmVzX2luBjsAVEkiDHB1cnBvc2UGOwBUSSIMZGVmYXVsdAY7AFRJIg9leHBpcmVzX2F0BjsAVDA%3D--485a2f1ffa1d7b4b02efb240b080af97118b9e4a&style=thumb',
             title: 'Bed and Breakfast',
             address:'Madhu in Jangpura, Delhi',
+            images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews:'7 Reviews',
             distance:'6.3 km',
             price:'2,106'
@@ -458,12 +558,128 @@ var delhiData = {
             imgurl:'https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSInZ2lkOi8vaHN0L0F2YXRhci8zNDM1Mjk_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--3643dcb2d96583c3d747a41a0c4b89ccebf90675&style=small',
             title: 'Bliss - A cheerful room and workpla',
             address:'Sangeeta  in Green Park, New Delhi',
+            images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
             reviews:'3 Reviews',
             distance:'9.1 km',
             price:'2,000'
-        }
+        },
+        {
+            backgroundimgUrl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSIwZ2lkOi8vaHN0L1Byb3BlcnR5UGljdHVyZS8xOTgwNzE_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--8189f4b77e4ca3961ed1e5fb6598e483abc38a05&style=listing",
+            imgurl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSI-Z2lkOi8vaHN0L1Byb3BlcnR5Q29udGFjdFByb2ZpbGVQaWN0dXJlLzIwMTExNj9leHBpcmVzX2luBjsAVEkiDHB1cnBvc2UGOwBUSSIMZGVmYXVsdAY7AFRJIg9leHBpcmVzX2F0BjsAVDA%3D--c2178b587e04ac2016dd2711ee045e5c2a970cb5&style=thumb",
+            title: "Happy Caring hosts ",
+            address: "SHARMILS IN VAISHALI NAGAR, Delhi",
+            images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
+            reviews: "0 Reviews",
+            distance: " 5.0km",
+            price: "2,000",
+        },
+        {
+            backgroundimgUrl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSIxZ2lkOi8vaHN0L1Byb3BlcnR5UGljdHVyZS8xMTYyMDMxP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA%3D%3D--38c3b692cc7a65454b72bdcbf749f267cc46c23c&style=listing",
+            imgurl: "http://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSInZ2lkOi8vaHN0L0F2YXRhci8yOTI4OTE_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--3d075ed0613ec1533b1ea3576e93c61c65da4677&style=small",
+            title: "Come for your best time in delhi",
+            address: "ADARSH IN JAGATPURA,Noida",
+            images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
+            reviews: "0Reviews",
+            distance: "9.7km",
+            price: "500",
+        },
+        {
+            backgroundimgUrl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSIwZ2lkOi8vaHN0L1Byb3BlcnR5UGljdHVyZS82MTU1Mjk_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--dec42531b4a81c899885be6691c883c7c3e5fb09&style=listing",
+            imgurl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSInZ2lkOi8vaHN0L0F2YXRhci8xMjM5Nzg_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--4d87db9aa1d90de1912f58ef1643700617db115f&style=small",
+            title: "K.D House",
+            address: "KULDEEP IN KALWAR ROAD, JHOTWARA,Delhi",
+            images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
+            reviews: "0 Reviews",
+            distance: " 7.0km",
+            price: "720",
+        },
+        {
+            backgroundimgUrl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSIwZ2lkOi8vaHN0L1Byb3BlcnR5UGljdHVyZS82MTQxNDA_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--5de77af9edec5233d3631a5f3522fc0ba1126cff&style=listing",
+            imgurl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSInZ2lkOi8vaHN0L0F2YXRhci8yMjExNTQ_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--e7bd5f061e4fde6e8f2e9370624789e935fbc085&style=small",
+            title: "Shanti villa",
+            address: "DR. RANU IN PARK FACING OPP NRI COLONY, Delhi",
+            images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
+            reviews: "0 Reviews",
+            distance: " 4.2km",
+            price: "1,333",
+        },
+        {
+            backgroundimgUrl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSIxZ2lkOi8vaHN0L1Byb3BlcnR5UGljdHVyZS8xMjQzNjEzP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA%3D%3D--b5e2d5122d65915459e5af9fc2348c1e61fa808a&style=listing",
+            imgurl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSInZ2lkOi8vaHN0L0F2YXRhci8yOTM0NjA_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--80083a40ec6a0da7fe14c9c49a6b28cf4d253ea9&style=small",
+            title: "Pushpanjali-the boutique stay",
+            address: "MAMTA IN AJMER ROAD,New Delhi",
+            images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
+            reviews: "0 Review",
+            distance: " 4.2km",
+            price: "2000",
+        },
+
+        {
+            backgroundimgUrl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSIxZ2lkOi8vaHN0L1Byb3BlcnR5UGljdHVyZS8xMDk2NjE1P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA%3D%3D--a83d2ef67e2c631ab77b2ca2fc743bc02313b58f&style=medium",
+            imgurl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSInZ2lkOi8vaHN0L0F2YXRhci8yNTc1Njk_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--6f7c1317bc82e4a50b394a8fcfa35babdb84ca3e&style=small",
+            title: "Lovely room in a historic bungalow!",
+            address: "Hari in C-Scheme, Ghajiabad",
+            images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
+            reviews: "19 Reviews",
+            distance: " 1.9km",
+            price: "1,000",
+        },
+        {
+            backgroundimgUrl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSIxZ2lkOi8vaHN0L1Byb3BlcnR5UGljdHVyZS8xMzg5ODk3P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA%3D%3D--5486a174563a99d8df7f0d638caa1cad0ec9a451&style=medium",
+            imgurl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSInZ2lkOi8vaHN0L0F2YXRhci8zNDMwNDI_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--e2a03e0d9d650e509fad03c8e11ee52c24b75ef2&style=small",
+            title: "Town of old forts and temples ",
+            address: "Manoj in Amer, Noida",
+            images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
+            reviews: "9 Reviews",
+            distance: " 12.4km",
+            price: "700",
+        },
+        {
+            backgroundimgUrl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSIxZ2lkOi8vaHN0L1Byb3BlcnR5UGljdHVyZS8xMzMyMDczP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA%3D%3D--93040b9aa32485b9c571589f473dbdc9f0196410&style=medium",
+            imgurl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSInZ2lkOi8vaHN0L0F2YXRhci8zMTc4NTk_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--108815849a65d55bcf84a6433d21caef6da8c2fb&style=small",
+            title: "Spacious 2-BHK with Big Terrace",
+            address: "UTKARSH in Near Dev nagar, Gurgao",
+            images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
+            reviews: "3 Reviews",
+            distance: "4.2km",
+            price: "600",
+        },
+        {
+            backgroundimgUrl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSIxZ2lkOi8vaHN0L1Byb3BlcnR5UGljdHVyZS8xMzE0MDIxP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA%3D%3D--1e6df641236ad2f0f1be2f0941c4ad088999f3dd&style=medium",
+            imgurl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSInZ2lkOi8vaHN0L0F2YXRhci8zMTEwMjM_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--3c1ed69e5d1b3a41334a405769deaa73a180aad6&style=small",
+            title: "Homestay at home",
+            address: "TEENA IN BANI PARK,Gurgao",
+            images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
+            reviews: "2 Reviews",
+            distance: " 3.3km",
+            price: "833",
+        },
+        {
+            backgroundimgUrl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSIxZ2lkOi8vaHN0L1Byb3BlcnR5UGljdHVyZS8xMTk1MjkzP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA%3D%3D--6ba0ebbfde0bd632eca994cb7f2327135907bd01&style=medium",
+            imgurl: "https://secure.homestaymanager.com/picture?ss=BAh7CEkiCGdpZAY6BkVUSSInZ2lkOi8vaHN0L0F2YXRhci8yODIwMjI_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--8c3c423b29c5fa1257d6762398ee17e5224d0d18&style=small",
+            title: "Srishti Homestay",
+            address: "HARSHVARDHAN IN VAISHALI NAGAR,New Delhi",
+            images: "https://www.homestay.com/assets/small-review-score-img-0b2a7a69f06c0d32cd00047fc4dd9f2535d9d80cc4832b725f7d4cb0580e33d7.svg",
+            reviews: "1 Review",
+            distance: " 5.4km",
+            price: "1000",
+        },
     ]
 }
+
+function renderCards(city){
+    var container = document.querySelector('.lower-newRight');
+    var cards = city.map(items => {return `<div class="lower-newRight1">
+        <div class="lowerRight-image"><img src="${items.backgroundimgUrl}"></div>
+        <div class="newRight-container"><p>${items.title}</p>
+        <p>${items.address}</p>
+        <img src="${items.images}">
+        <p>${items.reviews}</p>
+        <p>${items.distance}</p>
+        <p>FROM ${items.price} PER NIGHT</p></div>
+        </div>`}).join('');
+        container.innerHTML = cards;
+    }
 
 
 function renderNewRight(city){
@@ -472,17 +688,10 @@ function renderNewRight(city){
     <h1>${city.sectionTitle}</h1>
     <p>${city.sectionDescription}</p>
     </div>
-    <div class="lower-newRight">${city.cartItems.map(items => `<div class="lower-newRight1">
-        <div class="lowerRight-image"><img src="${items.backgroundimgUrl}"></div>
-        <div class="newRight-container"><p>${items.title}</p>
-        <p>${items.address}</p>
-        <img src="${items.images}">
-        <p>${items.reviews}</p>
-        <p>${items.distance}</p>
-        <p>FROM ₹${items.price} PER NIGHT</p></div>
-        </div>`).join('')}
-    </div>`;
+    <div class="lower-newRight"></div>`;
         newRight.innerHTML = rightContainer;
+        renderCards(city.cartItems);
+        // renderCards(delhiData.cartItems)
 }
 
 function renderNewLeft(){
@@ -491,7 +700,8 @@ function renderNewLeft(){
     newLeft.innerHTML = leftContainer;
 }
 
-document.querySelector('#search').addEventListener('click', function (){
+document.querySelector('#search').addEventListener('click', function (event){
+    event.preventDefault();
     document.querySelector('header').classList.add('header1');
     document.querySelector('.header-right').classList.add('header-right1');
     document.querySelector('.room').classList.add('room1');
@@ -499,16 +709,19 @@ document.querySelector('#search').addEventListener('click', function (){
     document.querySelector('.bottom-main').style.display = "none";
     document.querySelector('.down-middle').style.display = "none";
     document.querySelector('.hero-container').style.background = "none";
-    document.querySelector('main').style.display = "none";
+    document.querySelector('.hero-container').style.height = "25vh";
+    document.querySelector('.inspireMe').style.display = "none";
+    document.querySelector('.ListARoom').style.display = "none";
+    document.querySelector('section').style.display = "none";
+    document.querySelector('.newMain').classList.add('newMain1');
+    document.querySelector('.newMain1').style.display = "flex";
     document.querySelector('footer').style.display = "none";
-    document.querySelector('.down-middle1').style.display = "block";
-    document.querySelector('.videoSection').style.marginTop = "100px";
-   
+    document.querySelector('.down-middle1').style.display = "block";   
 
     var right = document.getElementById('header-right1');
     if (right) {
         var inspireMe = right.querySelector('a:nth-child(2)');
-        if (inspireMe) inspireMe.textContent = '₹ INR'; 
+        if (inspireMe) {inspireMe.textContent = '₹ INR';} 
         
         var newA = document.createElement('a');
         newA.textContent = 'CONTACT HOSTS';
@@ -516,5 +729,72 @@ document.querySelector('#search').addEventListener('click', function (){
     }
     renderNewHero();
     renderNewLeft();
-    renderNewRight(rajasthanData);
+    let list = document.querySelector('#dropdownlist');
+    let listValue = list.value;
+    console.log(listValue);
+    if(listValue == 'Rajasthan'){
+        renderNewRight(rajasthanData);
+    }else if(listValue == 'Delhi'){
+        renderNewRight(delhiData);
+    }
+
+    document.querySelector('#search1').addEventListener('click',function(event){
+        event.preventDefault();
+        let list1 = document.querySelector('#dropdownlist1');
+        let listValue1 = list1.value;
+        console.log(listValue1);
+        if(listValue1 == 'Rajasthan'){
+            renderNewRight(rajasthanData);
+        }else if(listValue1 == 'Delhi'){
+            renderNewRight(delhiData);
+        }
+    } )
+
 })
+
+// document.querySelector('#search1').addEventListener('click',function(event){
+//     event.preventDefault();
+//     renderNewHero()
+//     renderNewLeft()
+//     let list = document.querySelector('#dropdownlist');
+//     let listValue = list.value;
+//     console.log(listValue);
+//     if(listValue == 'Rajasthan'){
+//         renderNewRight(rajasthanData);
+//     }else if(listValue == 'Delhi'){
+//         renderNewRight(delhiData);
+//     }
+// } )
+
+
+function sortProducts(event) {
+    console.log(event.target.value);
+    var sortValue = event.target.value;
+      
+    let listValue = document.querySelector('#dropdownlist').value; 
+    // mujhe products mein store krna h rajasthan data ya delhi data jo depend karega #dropdownlist par.
+    if(listValue == 'Rajasthan'){
+        var products = rajasthanData;
+    }else if(listValue == 'Delhi'){
+        var products = delhiData;
+    }
+    console.log(products);
+    console.log(listValue);
+    
+    let sortedProducts;
+
+    if (sortValue === 'mostreviewed') {
+        sortedProducts = products.cartItems.sort((a, b) => parseFloat(b.reviews) - parseFloat(a.reviews));
+    } else if (sortValue === 'distance') {
+        sortedProducts = products.cartItems.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
+    } else if (sortValue === 'popular') {
+        sortedProducts = products.cartItems.sort((a, b) => a.price.localeCompare(b.price));
+    }
+    console.log(sortedProducts);    
+    renderCards(sortedProducts);
+}
+
+
+
+
+
